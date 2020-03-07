@@ -16,6 +16,22 @@
 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/nl_BE.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  moment.locale('nl_BE');
+
+  $('.post-date').each(function (i, date) {
+    var $date = $(date);
+
+    $date.html(
+      moment($date.attr('datetime'))
+        .format('LLL')
+    );
+  });
+});
+</script>
 
 </head>
 <body class="{{body_class}}">
